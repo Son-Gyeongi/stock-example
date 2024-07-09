@@ -1,0 +1,23 @@
+spring:
+  profiles:
+    active: secret
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3307/stock_example
+    username: ON_SECRET
+    password: ON_SECRET
+
+# \uCD94\uD6C4\uC5D0 JPA\uC5D0\uC11C \uCFFC\uB9AC\uAC00 \uC5B4\uB5BB\uAC8C \uB098\uAC00\uB294\uC9C0 \uD655\uC778
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE

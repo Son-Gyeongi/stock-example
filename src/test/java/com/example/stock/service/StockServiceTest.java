@@ -19,7 +19,8 @@ class StockServiceTest {
     // 우리가 만든 로직이 정상적으로 작동하는 지 확인을 위해서 테스트 코드 작성
 
     @Autowired
-    private StockService stockService;
+//    private StockService stockService; // ⓐ 의 경우
+    private PessimisticLockStockService stockService; // ⓑ 의 경우
 
     @Autowired
     private StockRepository stockRepository;
@@ -94,6 +95,6 @@ class StockServiceTest {
         // 예상과 다르게 88개 남아있음
         // 그 이유는 레이스 컨디션(Race Condition) 일어나서
         // 레이스 컨디션(Race Condition) 은 둘 이상의 스레드가 공유 데이터에 액세스할 수 있고 동시에 변경하려고 할 때 발생하는 문제
-        // -> 해결하기 위해서 하나의 스레드가 작업이 완료된 이후에 다른 스레드가 데이터에 접근을 할 수 있도록 하자.
+        // -> 해결하기 위해서 하나의 스레드가 작업이 완료된 이후에 다른 스레드가 데이터에 접근을 할 수 있도록 하자.(ⓐ 의 경우)
     }
 }

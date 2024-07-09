@@ -22,6 +22,9 @@ public class PessimisticLockStockService {
         - Lock을 통해 업데이트를 제어하기 때문에 데이터 정합성이 보장된다.
       - Pessimistic Lock 단점
         - 별도의 락을 잡기 때문에 성능 감소가 있을 수 있다.
+      - @Transactional
+        - Spring 에서 지원하는 @Lock 어노테이션은 트랜잭션을 요구
+          그렇기때문에 @Transactional를 지우면 쿼리를 실행하지 못해 무한루프가 발생
      */
     @Transactional
     public void decrease(Long id, Long quantity) {
